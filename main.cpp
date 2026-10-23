@@ -21,18 +21,23 @@ void recorrerInOrden (nodo *aux);
 
 int main() {
     int op;
-   cout<<"**MENU**"<<endl;
-   cout<<"1. Insertar nodo"<<endl;
-    cout<<"2. Recorrer arbol"<<endl;
-    cout<<"5. Salir"<<endl;
-    cout<<"Opcicón?: "; cin>>op;
+    do {
+        cout<<"**MENU**"<<endl;
+        cout<<"1. Insertar nodo"<<endl;
+        cout<<"2. Recorrer arbol"<<endl;
+        cout<<"5. Salir"<<endl;
+        cout<<"Opcicón?: "; cin>>op;
 
-    switch (op) {
-        case 1:
-            insertar(raiz);
-            break;
-    }
+        switch (op) {
+            case 1:
+                insertar(raiz);
+                break;
+                case 2:
+                recorrerInOrden(raiz);
+                break;
 
+        }
+    }while (op!=5);
     return 0;
 }
 
@@ -65,7 +70,6 @@ void insertar (nodo *aux) {
         }
         else if(nuevo->id<aux->id && aux->izq!=NULL) {
             insertar(aux->izq);
-
         }
         else if(nuevo->id>aux->id && aux->der!=NULL) {
 
@@ -79,3 +83,16 @@ void insertar (nodo *aux) {
 
 }
 
+void recorrerInOrden (nodo *aux) {
+
+    if(aux!=NULL) {
+        recorrerInOrden(aux->izq);
+
+        cout<<"******************"<<endl;
+        cout<<"Id:"<<aux->id<<endl;
+        cout<<"Matricula:"<<aux->matricula<<endl;
+
+        recorrerInOrden(aux->der);
+    }
+
+}
