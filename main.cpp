@@ -40,6 +40,7 @@ int main() {
 
 void insertar (nodo *aux) {
 
+
     nodo *nuevo = new nodo();
     cout<<"id: "; cin>>nuevo->id;
     cout<<"nombre: "; cin>>nuevo->nombre;
